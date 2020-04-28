@@ -1,0 +1,17 @@
+<div class="py-20" style="background: linear-gradient(180deg, #ff0000 0%, #ff7b00 100%)" *ngIf="story">
+<div class="w-full p-6 flex flex-col flex-grow flex-shrink">
+  <div class="flex-1 bg-white rounded-t rounded-b overflow-hidden shadow-lg">
+    <img [src]="story.content.hero" class="h-full w-full rounded-t pb-6">
+    <div class="flex-none mt-auto bg-white rounded-b-none rounded-t overflow-hidden p-6">
+      <div class="flex items-center justify-between">
+        Written by {{ story.content.author }} <img class="w-12 h-12 rounded-full mr-4" data-tippy-content="Author Name" src="https://res.cloudinary.com/tamas-demo/image/upload/w_80,h_80,c_thumb,g_face,f_auto,q_auto/tamas.jpg" [alt]="story.content.author">
+      </div>
+    </div>
+    <div class="w-full font-bold text-2xl text-gray-900 px-6">{{ story.content.title }}</div>
+    <p class="text-gray-800 text-base m-6">
+      <markdown ngPreserveWhitespaces>
+        {{ story.content.body }}
+      </markdown>
+    </p>
+  </div>
+</div>

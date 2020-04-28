@@ -1,0 +1,22 @@
+<div class="py-20" style="background: linear-gradient(180deg, #ff0000 0%, #ff7b00 100%)">
+  <div class="container mx-auto px-6">
+    <div *ngFor="let story of stories" class="w-full p-6 flex flex-col flex-grow flex-shrink">
+      <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+        <a [routerLink]="['/articles', story.slug]" class="flex flex-wrap no-underline hover:no-underline">	
+          <img [src]="story.content.hero" class="h-full w-full rounded-t pb-6">
+          <p class="w-full text-gray-600 text-xs md:text-sm px-6">{{ story.tag_list | tagList }}</p>
+          <div class="w-full font-bold text-xl text-gray-900 px-6">{{ story.content.title }}</div>
+          <p class="text-gray-800 font-serif text-base px-6 mb-5">
+            {{ story.content.excerpt }}
+          </p>
+        </a>
+      </div>
+      <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+        <div class="flex items-center justify-between">
+          Written by {{ story.content.author }} at {{ story.published_at | date }} <img class="w-12 h-12 rounded-full mr-4" data-tippy-content="Author Name" src="https://res.cloudinary.com/tamas-demo/image/upload/w_80,h_80,c_thumb,g_face,f_auto,q_auto/tamas.jpg" [alt]="story.content.author">
+          <p class="text-gray-600 text-xs md:text-sm">{{ readtimes.get(story.content._uid) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
